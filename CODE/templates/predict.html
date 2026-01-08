@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predict | PhishGuard</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #1f2937;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main container */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 6px 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #1f2937;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        button {
+            grid-column: 1 / -1;
+            padding: 12px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #1d4ed8;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 6px;
+        }
+
+        .safe {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+
+        .danger {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+
+        .chart-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 16px;
+            text-decoration: none;
+            color: #2563eb;
+        }
+
+        .chart-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">🔐 PhishGuard</div>
+    <div>
+        <a href="/">Home</a>
+        <a href="/predict">Predict</a>
+        <a href="/chart">Chart</a>
+        <a href="/logout">Logout</a>
+    </div>
+</nav>
+
+<!-- CONTENT -->
+<div class="container">
+    <h2>Phishing Website Detection</h2>
+
+    <form method="POST">
+        {% for f in feature_names %}
+            <input type="number" step="any" name="{{ f }}" placeholder="{{ f }}" required>
+        {% endfor %}
+        <button type="submit">🔍 Predict</button>
+    </form>
+
+    {% if result %}
+        <div class="result {{ 'danger' if 'Phishing' in result else 'safe' }}">
+            {{ result }}
+        </div>
+
+        <a href="/chart" class="chart-link">📊 View Prediction Chart</a>
+    {% endif %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PhishGuard | Home</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #1f2937;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #1f2937;
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 30px;
+            color: #374151;
+        }
+
+        p {
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        .btn {
+            display: block;
+            width: 220px;
+            margin: 30px auto 0;
+            padding: 12px;
+            background-color: #2563eb;
+            color: #ffffff;
+            text-align: center;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">PhishGuard</div>
+    <div>
+        <a href="/">Home</a>
+        <a href="/register">Register</a>
+        <a href="/login">Login</a>
+    </div>
+</nav>
+
+<!-- CONTENT -->
+<div class="container">
+    <h1>PhishGuard</h1>
+    <p style="text-align:center;">
+        An Intelligent Phishing Website Detection System using Machine Learning
+    </p>
+
+    <h2>Abstract</h2>
+    <p>
+        Phishing attacks remain a major cybersecurity concern due to their ability
+        to mimic legitimate websites and deceive users into revealing sensitive
+        information. While several approaches in phishing detection have focused
+        on heuristic rules or deep learning models, many of these methods lack
+        transparency in feature contribution and are computationally expensive
+        for real-time applications.
+    </p>
+
+    <p>
+        This study addresses this limitation by presenting a descriptive analysis
+        and classification of phishing URLs using a feature-driven machine learning
+        framework. Unlike traditional detection mechanisms that rely on predefined
+        rule sets, this research employs the XGBoost algorithm to evaluate and
+        classify URL characteristics derived from structural, lexical, and
+        host-based attributes.
+    </p>
+
+    <p>
+        Through systematic preprocessing, feature handling, and hyperparameter
+        tuning, the model identifies key discriminative features that influence
+        phishing behavior across diverse URL samples. The dataset used in this
+        study consists of labeled phishing and legitimate URLs, ensuring that the
+        evaluation remains domain-specific and practically relevant.
+    </p>
+
+    <p>
+        Experimental results demonstrate that the proposed XGBoost model produces
+        highly accurate classifications with minimal error, validating its
+        effectiveness for phishing detection tasks. The findings indicate that
+        feature-optimized boosting models can support reliable, data-driven
+        security decisions for analysts, developers, and cybersecurity
+        practitioners. This approach not only enhances efficiency in phishing
+        identification but also contributes to greater transparency and
+        interpretability in automated threat detection systems.
+    </p>
+
+    <a href="/login" class="btn">Start Detection</a>
+</div>
+
+<footer>
+    © 2026 PhishGuard | Machine Learning Based Cybersecurity Project
+</footer>
+
+</body>
+</html>
